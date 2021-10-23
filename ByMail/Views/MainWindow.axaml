@@ -19,28 +19,79 @@
         SystemDecorations="None"
         Background="Transparent"
         UseLayoutRounding="True">
-	
-    <Design.DataContext>
-        <vm:MainWindowViewModel/>
-    </Design.DataContext>
 
-	    <Border BorderBrush="#1879FF"
-                BorderThickness="1"
-                ClipToBounds="True" Padding="1"
-                Background="White">
-		
-		    <DockPanel HorizontalAlignment="Stretch"
-                       VerticalAlignment="Stretch"
-                       Name="ContentWrapper"
-				       Margin="2,0,2, 20">
-			
-			    <ui:CustomTitleBar Background="Transparent">
-			    </ui:CustomTitleBar>
+	<Design.DataContext>
+		<vm:MainWindowViewModel/>
+	</Design.DataContext>
 
-			    <DockPanel Background="White">
-				    <!--<transition:PageContainer Name="Container"/>-->
-			    </DockPanel>
-		    </DockPanel>
-	    </Border>
+	<Border BorderBrush="#1879FF"
+			BorderThickness="1"
+			ClipToBounds="True" Padding="1"
+			Background="White">
+
+		<DockPanel HorizontalAlignment="Stretch"
+				   VerticalAlignment="Stretch"
+				   Name="ContentWrapper"
+				   Margin="2,0,2, 20">
+
+			<ui:CustomTitleBar Background="Transparent">
+			</ui:CustomTitleBar>
+
+			<DockPanel Background="White">
+				<!--<transition:PageContainer Name="Container"/>-->
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="2*"/>
+						<ColumnDefinition Width="5*"/>
+					</Grid.ColumnDefinitions>
+
+					<!--Side Bar-->
+					<Grid Grid.Column="0">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="1*"/>
+							<RowDefinition Height="4*"/>
+							<RowDefinition Height="4*"/>
+							<RowDefinition Height="1*"/>
+						</Grid.RowDefinitions>
+					</Grid>
+
+					<!--Header-->
+					<StackPanel Grid.Row="0">
+						<!--Account-->
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="2*"/>
+								<ColumnDefinition Width="7*"/>
+							</Grid.ColumnDefinitions>
+
+							<!--Header Avatar-->
+							<Border Grid.Column="0" Height="40" Width="40" CornerRadius="50" Background="Gray" HorizontalAlignment="Left" Margin="20,20,0,0"/>
+							<!--Account details-->
+							<StackPanel Orientation="Vertical" Grid.Column="1" Spacing="0">
+								<TextBlock Text=" ByMailApp" Margin="0,25,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="17"/>
+								<TextBlock Text=" ByMailApp@gmail.com" Margin="0,0,0,0" HorizontalAlignment="Left" FontWeight="DemiBold" FontSize="12" Foreground="Gray"/>
+							</StackPanel>
+						</Grid>
+
+						<!--Button-->
+						<Button BorderBrush="Gray" BorderThickness="1" Background="Transparent" CornerRadius="3" Margin="23	,25,20,0" Height="40" Width="200">
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="1*"/>
+									<ColumnDefinition Width="5*"/>
+								</Grid.ColumnDefinitions>
+
+								<!--Icon-->
+								<!--putt here the plus icon rounded-->
+
+								<!--Text-->
+								<TextBlock Grid.Column="1" Text="Compose New Message" FontWeight="DemiBold" FontSize="13" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+							</Grid>
+						</Button>
+					</StackPanel>
+				</Grid>
+			</DockPanel>
+		</DockPanel>
+	</Border>
 
 </Window>
