@@ -38,7 +38,9 @@
 			    </ui:CustomTitleBar>
 
 			    <DockPanel Background="White">
-				    <!--<transition:PageContainer Name="Container"/>-->
+					<Grid DockPanel.Dock="Left" Width="250" Background="Blue"></Grid>
+					<Grid DockPanel.Dock="Left" Background="Green"></Grid>
+					<!--<transition:PageContainer Name="Container"/>-->
 			    </DockPanel>
 		    </DockPanel>
 	    </Border>
