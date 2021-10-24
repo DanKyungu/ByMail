@@ -48,47 +48,176 @@
 					<!--Side Bar-->
 					<Grid Grid.Column="0">
 						<Grid.RowDefinitions>
-							<RowDefinition Height="1*"/>
+							<RowDefinition Height="30"/>
+							<RowDefinition Height="8*"/>
+							<RowDefinition Height="20"/>
 							<RowDefinition Height="4*"/>
-							<RowDefinition Height="4*"/>
-							<RowDefinition Height="1*"/>
+							<RowDefinition Height="60"/>
 						</Grid.RowDefinitions>
-					</Grid>
-
-					<!--Header-->
-					<StackPanel Grid.Row="0">
-						<!--Account-->
-						<Grid>
-							<Grid.ColumnDefinitions>
-								<ColumnDefinition Width="2*"/>
-								<ColumnDefinition Width="7*"/>
-							</Grid.ColumnDefinitions>
-
-							<!--Header Avatar-->
-							<Border Grid.Column="0" Height="40" Width="40" CornerRadius="50" Background="Gray" HorizontalAlignment="Left" Margin="20,20,0,0"/>
-							<!--Account details-->
-							<StackPanel Orientation="Vertical" Grid.Column="1" Spacing="0">
-								<TextBlock Text=" ByMailApp" Margin="0,25,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="17"/>
-								<TextBlock Text=" ByMailApp@gmail.com" Margin="0,0,0,0" HorizontalAlignment="Left" FontWeight="DemiBold" FontSize="12" Foreground="Gray"/>
-							</StackPanel>
-						</Grid>
-
-						<!--Button-->
-						<Button BorderBrush="Gray" BorderThickness="1" Background="Transparent" CornerRadius="3" Margin="23	,25,20,0" Height="40" Width="200">
+						<!--Header-->
+						<StackPanel Grid.Row="0">
+							<!--Account-->
 							<Grid>
 								<Grid.ColumnDefinitions>
-									<ColumnDefinition Width="1*"/>
-									<ColumnDefinition Width="5*"/>
+									<ColumnDefinition Width="2*"/>
+									<ColumnDefinition Width="7*"/>
 								</Grid.ColumnDefinitions>
 
-								<!--Icon-->
-								<!--putt here the plus icon rounded-->
-
-								<!--Text-->
-								<TextBlock Grid.Column="1" Text="Compose New Message" FontWeight="DemiBold" FontSize="13" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+								<!--Header Avatar-->
+								<Border Grid.Column="0" Height="40" Width="40" CornerRadius="50" Background="Gray" HorizontalAlignment="Left" Margin="20,20,0,0"/>
+								<!--Account details-->
+								<StackPanel Orientation="Vertical" Grid.Column="1" Spacing="0">
+									<TextBlock Text=" ByMailApp" Margin="0,25,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="17"/>
+									<TextBlock Text=" ByMailApp@gmail.com" Margin="0,0,0,0" HorizontalAlignment="Left" FontWeight="DemiBold" FontSize="12" Foreground="Gray"/>
+								</StackPanel>
 							</Grid>
-						</Button>
-					</StackPanel>
+
+							<!--Button-->
+							<Button BorderBrush="Gray" BorderThickness="1" Background="Transparent" CornerRadius="3" Margin="23	,25,20,0" Height="35" Width="200">
+								<Grid>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="1*"/>
+										<ColumnDefinition Width="5*"/>
+									</Grid.ColumnDefinitions>
+
+									<!--Icon-->
+									<!--putt here the plus icon rounded-->
+
+									<!--Text-->
+									<TextBlock Grid.Column="1" Text="Compose New Message" FontWeight="DemiBold" FontSize="13" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+								</Grid>
+							</Button>
+						</StackPanel>
+
+						<!--Menu Item List-->
+						<StackPanel Grid.Row="1" Margin="0,130,0,0">
+							<ListBox x:Name="menuItemsList" Items="{Binding MenuItems}" Selection="{Binding Selection}"  Background="Transparent">
+								<ListBox.Styles>
+									<Style Selector="ListBoxItem">
+										<Setter Property="Width" Value="205"/>
+										<Setter Property="Height" Value="35"/>
+										<Setter Property="Background" Value="White"/>
+										<Setter Property="Margin" Value="5,0,40,0"/>
+										<Setter Property="CornerRadius" Value="5"/>
+									</Style>
+									<Style Selector="ListBoxItem:pointerover /template/ ContentPresenter">
+										<Setter Property="Background" Value="#cfe2f3"/>
+									</Style>
+									<Style Selector="ListBoxItem:selected /template/ ContentPresenter">
+										<Setter Property="Background" Value="#cfe2f3"/>
+									</Style>
+								</ListBox.Styles>
+								<ListBox.ItemTemplate>
+									<DataTemplate>
+										<Grid>
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition Width="40"/>
+												<ColumnDefinition Width="50"/>
+												<ColumnDefinition Width="50"/>
+												<ColumnDefinition Width="20"/>
+											</Grid.ColumnDefinitions>
+
+											<!--Icon Column-->
+
+											<!--text column-->
+											<TextBlock Text="{Binding Title}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Column="1" FontSize="13" FontWeight="SemiBold"/>
+
+											<TextBlock Text="{Binding Count}" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="3" FontSize="13" FontWeight="SemiBold"/>
+										</Grid>
+									</DataTemplate>
+								</ListBox.ItemTemplate>
+							</ListBox>
+						</StackPanel>
+
+						<!--Separator-->
+						<!--<Line StartPoint="10,60" EndPoint="150,60" Grid.Row="2" Stroke="Gray" StrokeThickness="2"/>-->
+
+						<!--Folder part-->
+						<StackPanel Grid.Row="3">
+							<ListBox x:Name="folderPart" Items="{Binding Folders}" Selection="{Binding Selection}"  Background="Transparent">
+								<ListBox.Styles>
+									<Style Selector="ListBoxItem">
+										<Setter Property="Width" Value="205"/>
+										<Setter Property="Height" Value="35"/>
+										<Setter Property="Background" Value="White"/>
+										<Setter Property="Margin" Value="5,0,40,0"/>
+										<Setter Property="CornerRadius" Value="5"/>
+									</Style>
+									<Style Selector="ListBoxItem:pointerover /template/ ContentPresenter">
+										<Setter Property="Background" Value="#cfe2f3"/>
+									</Style>
+									<Style Selector="ListBoxItem:selected /template/ ContentPresenter">
+										<Setter Property="Background" Value="#cfe2f3"/>
+									</Style>
+								</ListBox.Styles>
+								<ListBox.ItemTemplate>
+									<DataTemplate>
+										<Grid>
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition Width="40"/>
+												<ColumnDefinition Width="*"/>
+											</Grid.ColumnDefinitions>
+
+											<!--Icon Column-->
+
+											<!--text column-->
+											<TextBlock Text="{Binding Name}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Column="1" FontSize="13" FontWeight="SemiBold"/>
+										</Grid>
+									</DataTemplate>
+								</ListBox.ItemTemplate>
+							</ListBox>
+
+							<!--Button-->
+							<Button BorderBrush="Gray" BorderThickness="1"  Background="Transparent" CornerRadius="3" Margin="23,5,20,0" Height="35" Width="200">
+								<Grid>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="1.5*"/>
+										<ColumnDefinition Width="5*"/>
+									</Grid.ColumnDefinitions>
+
+									<!--Icon-->
+									<!--putt here the plus icon rounded-->
+
+									<!--Text-->
+									<TextBlock Grid.Column="1" Text="New Folder" FontWeight="DemiBold" FontSize="13" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+								</Grid>
+							</Button>
+						</StackPanel>
+
+						<!--Footer part-->
+						<StackPanel Grid.Row="4">
+							<Button BorderBrush="Gray" BorderThickness="0"  Background="Transparent" CornerRadius="3" Margin="23,5,20,0" Height="30" Width="200">
+								<Grid>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="1.5*"/>
+										<ColumnDefinition Width="5*"/>
+									</Grid.ColumnDefinitions>
+
+									<!--Icon-->
+									<!--putt here the plus icon rounded-->
+
+									<!--Text-->
+									<TextBlock Grid.Column="1" Text="Contacts" FontWeight="DemiBold" FontSize="13" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+								</Grid>
+							</Button>
+
+							<Button BorderBrush="Gray" BorderThickness="0"  Background="Transparent" CornerRadius="3" Margin="23,5,20,0" Height="30" Width="200">
+								<Grid>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="1.5*"/>
+										<ColumnDefinition Width="5*"/>
+									</Grid.ColumnDefinitions>
+
+									<!--Icon-->
+									<!--putt here the plus icon rounded-->
+
+									<!--Text-->
+									<TextBlock Grid.Column="1" Text="Settings" FontWeight="DemiBold" FontSize="13" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+								</Grid>
+							</Button>
+						</StackPanel>
+					</Grid>
+
 				</Grid>
 			</DockPanel>
 		</DockPanel>
