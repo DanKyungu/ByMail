@@ -7,6 +7,7 @@
   <ItemGroup>
     <AvaloniaResource Include="Assets\**" />
     <None Remove=".gitignore" />
+    <None Remove="Assets\johndoe.jpg" />
     <None Remove="Assets\p1.png" />
     <None Remove="Styles\Base.xaml" />
     <None Remove="Styles\Brushes.xaml" />

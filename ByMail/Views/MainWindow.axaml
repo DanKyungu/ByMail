@@ -49,32 +49,42 @@
 					<Grid Grid.Column="0">
 						<Grid.RowDefinitions>
 							<RowDefinition Height="30"/>
-							<RowDefinition Height="8*"/>
-							<RowDefinition Height="2*"/>
+							<RowDefinition Height="3*"/>
+							<RowDefinition Height="3*"/>
 							<RowDefinition Height="4*"/>
 							<RowDefinition Height="60"/>
 						</Grid.RowDefinitions>
 						<!--Header-->
 						<StackPanel Grid.Row="0">
 							<!--Account-->
-							<Grid>
-								<Grid.ColumnDefinitions>
-									<ColumnDefinition Width="2*"/>
-									<ColumnDefinition Width="7*"/>
-								</Grid.ColumnDefinitions>
+							<Button Background="White">
+								<Button.Styles>
+									<Style Selector="Button:pointerover /template/ ContentPresenter">
+										<Setter Property="Background" Value="White"/>
+									</Style>
+									<Style Selector="Button:pressed /template/ ContentPresenter">
+										<Setter Property="Background" Value="WhiteSmoke"/>
+									</Style>
+								</Button.Styles>
+								<Grid>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="2*"/>
+										<ColumnDefinition Width="7*"/>
+									</Grid.ColumnDefinitions>
 
-								<!--Header Avatar-->
-								<Ellipse Height="45" Width="45"  Margin="20,20,0,0">
-									<Ellipse.Fill>
-										<ImageBrush Source="avares://ByMail/Assets/p1.png"/>
-									</Ellipse.Fill>
-								</Ellipse>
-								<!--Account details-->
-								<StackPanel Orientation="Vertical" Grid.Column="1" Spacing="0">
-									<TextBlock Text=" ByMailApp" Margin="0,25,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="17"/>
-									<TextBlock Text=" ByMailApp@gmail.com" Margin="0,0,0,0" HorizontalAlignment="Left" FontWeight="DemiBold" FontSize="12" Foreground="Gray"/>
-								</StackPanel>
-							</Grid>
+									<!--Header Avatar-->
+									<Ellipse Height="45" Width="45"  Margin="20,20,0,0">
+										<Ellipse.Fill>
+											<ImageBrush Source="avares://ByMail/Assets/johndoe.jpg"/>
+										</Ellipse.Fill>
+									</Ellipse>
+									<!--Account details-->
+									<StackPanel Orientation="Vertical" Grid.Column="1" Spacing="0">
+										<TextBlock Text=" ByMailApp" Margin="0,25,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="17"/>
+										<TextBlock Text=" ByMailApp@gmail.com" Margin="0,0,0,0" HorizontalAlignment="Left" FontWeight="DemiBold" FontSize="12" Foreground="Gray"/>
+									</StackPanel>
+								</Grid>
+							</Button>
 
 							<!--Button-->
 							<Button BorderBrush="Gray" BorderThickness="1" Background="Transparent" CornerRadius="3" Margin="23	,25,20,0" Height="30" Width="200">
@@ -143,7 +153,9 @@
 						</StackPanel>
 
 						<!--Separator-->
-						<!--<Line StartPoint="10,60" EndPoint="150,60" Grid.Row="2" Stroke="Gray" StrokeThickness="2"/>-->
+						<Canvas Grid.Row="2">
+							<Line StartPoint="10,60" EndPoint="220,60" Stroke="Gray" Margin="5,20,5,10" StrokeThickness="1"/>
+						</Canvas>
 
 						<!--Folder part-->
 						<StackPanel Grid.Row="3">
@@ -210,7 +222,7 @@
 							<Button BorderBrush="Gray" BorderThickness="0"  Background="Transparent" CornerRadius="3" Margin="23,5,20,0" Height="30" Width="200">
 								<Grid>
 									<Grid.ColumnDefinitions>
-										<ColumnDefinition Width="1.5*"/>
+										<ColumnDefinition Width="1.0*"/>
 										<ColumnDefinition Width="5*"/>
 									</Grid.ColumnDefinitions>
 
