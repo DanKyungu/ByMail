@@ -69,11 +69,6 @@
 										<ImageBrush Source="avares://ByMail/Assets/p1.png"/>
 									</Ellipse.Fill>
 								</Ellipse>
-								<!--<Border Height="45" Width="45" CornerRadius="50" Background="White" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="20,20,0,0">
-									<StackPanel>
-										<Image Source="avares://ByMail/Assets/p1.png" Stretch="Uniform" ClipToBounds="True"/>
-									</StackPanel>
-								</Border>-->
 								<!--Account details-->
 								<StackPanel Orientation="Vertical" Grid.Column="1" Spacing="0">
 									<TextBlock Text=" ByMailApp" Margin="0,25,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="17"/>
